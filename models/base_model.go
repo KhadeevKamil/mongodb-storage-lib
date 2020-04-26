@@ -19,7 +19,7 @@ func (bs *BaseModel) GetID() primitive.ObjectID {
 }
 
 // GetHexID() returns ID of the document
-func (bs *BaseModel) GetHexId() string {
+func (bs *BaseModel) GetHexID() string {
 	return bs.ID.Hex()
 }
 
@@ -38,10 +38,10 @@ func (bs *BaseModel) SetHexID(hexID string) error {
 // SetupTimestamps() sets CreatedAt and UpdatedAt fields for the model
 // The method does not store any data to database
 // you should use the method before InsertMany(), UpdateMany() requests from you storage
-func (m *BaseModel) SetupTimestamps() {
-	if m.CreatedAt == 0 {
-		m.CreatedAt = timecop.Now().Unix()
+func (bs *BaseModel) SetupTimestamps() {
+	if bs.CreatedAt == 0 {
+		bs.CreatedAt = timecop.Now().Unix()
 	}
 
-	m.UpdatedAt = timecop.Now().Unix()
+	bs.UpdatedAt = timecop.Now().Unix()
 }
