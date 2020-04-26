@@ -102,3 +102,8 @@ func (bs *BaseStorage) InsertMany(ctx context.Context, docs []interface{}, opts 
 
 	return hexIDs, nil
 }
+
+// DropAll() deletes collection from database
+func (bs *BaseStorage) DropAll(ctx context.Context) error {
+	return bs.GetCollection().Drop(ctx)
+}
